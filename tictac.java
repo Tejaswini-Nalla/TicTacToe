@@ -9,7 +9,7 @@ class tictac{
 		TicTacToe game=new TicTacToe();
 		while(!isGameOver)
 		{
-			System.out.println(game.player==game.player1?"Player1 1 choice":"Player2 choice");
+			System.out.println(game.player==game.player1?"Player1 choice":"Player2 choice");
 			i=s.nextInt();
 			j=s.nextInt();
 			if(game.checkplace(i,j))
@@ -19,10 +19,12 @@ class tictac{
 					if(game.player==game.player1)
 					{
 						System.out.println("Player1 wins");
+						isGameOver=true;
 					}
 					else
 					{
 						System.out.println("Player2 wins");
+						isGameOver=true;
 					}
 						
 				}
