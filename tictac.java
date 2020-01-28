@@ -4,13 +4,13 @@ class tictac{
       
 	
 	public static void main(String[] args){
-		Scanner s = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		TicTacToe game=new TicTacToe();
 		while(!game.isGameOver)
 		{
 			System.out.println(game.player==game.player1?"Player1 choice":"Player2 choice");
-			row=s.nextInt();
-			col=s.nextInt();
+			row=scanner.nextInt();
+			col=scanner.nextInt();
 			if(game.checkplace(row,col))
 			{
 				if(game.checkWinner(game.player))
@@ -24,6 +24,7 @@ class tictac{
 					else
 					{
 						System.out.println("Player2 wins");
+						break;
 					}
 						
 				}

@@ -16,6 +16,15 @@ class TicTacToe{
 		}
 		//System.out.print("place available");
 		gameBoard[i][j]=player;
+		for(int rows[]:gameBoard)
+		{
+			for(int col:rows)
+			{
+				System.out.print(col+" ");
+			}
+			System.out.println();
+
+		}
 		return true;
 	}
 	boolean checkWinner(int player)
