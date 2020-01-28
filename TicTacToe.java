@@ -13,7 +13,7 @@ class TicTacToe{
 			System.out.println("Enter correct positions");
 			return false;
 		}
-		
+		System.out.print("place available");
 		gameBoard[i][j]=player;
 		if(player==1)
 		{

@@ -18,8 +18,10 @@ class tictac{
 				{  
 					if(game.player==game.player1)
 					{
+						System.out.println(isGameOver);
 						System.out.println("Player1 wins");
 						isGameOver=true;
+						System.out.println("after chage"+isGameOver);
 					}
 					else
 					{
