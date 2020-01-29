@@ -1,8 +1,6 @@
 import java.util.Scanner;
 class tictac{
 	static int row,col;
-      
-	
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
 		TicTacToe game=new TicTacToe();
@@ -13,7 +11,7 @@ class tictac{
 			col=scanner.nextInt();
 			if(game.checkplace(row,col))
 			{
-				if(game.checkWinner(game.player))
+				if(game.checkWinner(game.player,row,col))
 				{  
 
 					if(game.player==game.player1)
@@ -29,14 +27,7 @@ class tictac{
 						
 				}
 			}
-			if(game.player==game.player1)
-		   {
-			   game.player=game.player2;
-		   }
-		  else
-		   {
-			   game.player=game.player1;
-		   }
+			game.player=game.switchPlayer(game.player);
 			
 		}
 		
