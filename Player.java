@@ -10,10 +10,10 @@ class Player {
         this.name=name;
         this.symbol=symbol;
     }
-    boolean placeMoveOnBoard(int pos,String symbol,ArrayList<String> gameBoard)
+    boolean placeMoveOnBoard(int position,String symbol,ArrayList<String> gameBoard)
     {
-        gameBoard.add(pos,symbol);
-        playerMoves.add(pos);
+        gameBoard.add(position,symbol);
+        playerMoves.add(position);
         return true;
 
     }

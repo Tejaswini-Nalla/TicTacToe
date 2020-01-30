@@ -32,6 +32,18 @@ class GameController {
             board.checkisWinner(player2.name, player2.playerMoves);  
         }
     }
+    void checkPositionEmpty()
+    {
+        if(board.isPositionEmpty(position))
+        {
+            performAction();
+            currentplayer=changePlayerturn(currentplayer); 
+        }
+        else
+        {
+            System.out.println("Position filled,give another position");
+        }
+    }
     void startGame()
     {
         while(!board.isGameOver)
@@ -40,19 +52,13 @@ class GameController {
             {
                 System.out.println(currentplayer+" give position");
                 position=input.nextInt();
-                if(board.isPositionEmpty(position))
-                {
-                    performAction();
-                    currentplayer=changePlayerturn(currentplayer); 
-                }
+                checkPositionEmpty();   
             } 
             else
             {
                 System.out.println("Draw");
                 board.isGameOver=true;
-            } 
-            
-            
+            }  
         }
     }
     
