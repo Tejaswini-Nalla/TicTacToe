@@ -50,7 +50,7 @@ class GameController {
         {
             if(!board.isBoardfilled())
             {
-                System.out.println(currentplayer+" give position");
+                System.out.println("Player "+currentplayer+", give position to be placed");
                 position=input.nextInt();
                 checkPositionEmpty();   
             } 

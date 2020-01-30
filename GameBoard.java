@@ -25,7 +25,7 @@ class GameBoard {
 	}
 	void checkisWinner(String name,ArrayList<Integer> playerMoves)
 	{
-		System.out.println(playerMoves);
+		System.out.println(name+" moves:"+playerMoves);
 		for(int i=0;i<winPositions.length;i++)
 		{
 			ArrayList<Integer> checkPositions=new ArrayList<>();
