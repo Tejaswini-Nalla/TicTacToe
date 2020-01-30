@@ -7,9 +7,16 @@ class GameController {
     String currentplayer=player1.name;
     int position;
     boolean placed;
-    void changePlayerturn(String currentplayer)
+    String changePlayerturn(String currentplayer)
     {
-        currentplayer=currentplayer==player1.name?player2.name:player1.name;
+        if(currentplayer==player1.name)
+        {
+            return player2.name;
+        }
+        else
+        {
+            return player1.name;
+        }
     }
     void startGame()
     {
@@ -22,15 +29,18 @@ class GameController {
                 if(currentplayer==player1.name)
                 {
                     player1.placeMoveOnBoard(position, player1.symbol,board.gameBoard);
+                    board.printBoard();
                     board.checkisWinner(player1.name, player1.playerMoves);
                 }
                 else
                 {
                     player2.placeMoveOnBoard(position, player2.symbol,board.gameBoard); 
-                    board.checkisWinner(player1.name, player1.playerMoves);  
+                    board.printBoard();
+                    board.checkisWinner(player2.name, player2.playerMoves);  
                 }
-                
+                currentplayer=changePlayerturn(currentplayer); 
             }
+            
             
         }
     }
