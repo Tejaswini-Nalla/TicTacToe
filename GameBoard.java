@@ -33,7 +33,7 @@ class GameBoard {
 			if(playerMoves.containsAll(checkPositions))
 			{
 				isGameOver=true;
-				System.out.println(name+"Won");
+				System.out.println(name+" "+"Won");
 				break;
 			}
 		}
