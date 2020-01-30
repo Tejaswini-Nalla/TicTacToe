@@ -22,6 +22,7 @@ class GameController {
     {
         while(!board.isGameOver)
         {
+            if(!board.isBoardfilled()){
             System.out.println(currentplayer+" give position");
             position=input.nextInt();
             if(board.isPositionEmpty(position))
@@ -40,6 +41,12 @@ class GameController {
                 }
                 currentplayer=changePlayerturn(currentplayer); 
             }
+            } 
+            else
+            {
+                System.out.println("Draw");
+                board.isGameOver=true;
+            } 
             
             
         }

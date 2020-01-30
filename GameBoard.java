@@ -4,7 +4,7 @@ import java.util.Collections;
 class GameBoard {
 	public boolean isGameOver=false;
 	public ArrayList<String> gameBoard=new ArrayList<String>(Collections.nCopies(9, "-"));
-	int winPositions[][]={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8}};
+	int winPositions[][]={{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{1,4,8},{2,4,6}};
 	boolean isPositionEmpty(int position)
 	{
 		if(gameBoard.get(position)=="-")
@@ -13,6 +13,14 @@ class GameBoard {
 	}
 	boolean isBoardfilled()
 	{
+		int countfilled=0;
+		for(String valueOnBoard:gameBoard)
+		{
+			if(valueOnBoard!="-")
+			  countfilled++;
+		}
+		if(countfilled==9)
+		   return true;
 		return false;
 	}
 	void checkisWinner(String name,ArrayList<Integer> playerMoves)
