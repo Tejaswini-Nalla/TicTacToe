@@ -7,7 +7,7 @@ class TicTacToe{
 	boolean checkplace(int row,int col)
 	{ 	
 		if(gameBoard[row][col]!=0){
-			System.out.println("Already placed");
+			System.out.println("Already present,select other position");
 			return false;
 		}
 		if(row<0 || row>2 || col<0 || col>2){
