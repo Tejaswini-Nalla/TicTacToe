@@ -4,37 +4,31 @@ class GameController {
     Player player1 = new Player("A","X");
     Player player2 = new Player("B","O");
     GameBoard board = new GameBoard();
-    String currentplayer = player1.name;
+    Player players[] = {player1, player2}; 
+    int currentPlayerIndex = 0;
     int position;
 
-    String changePlayerturn(String currentplayer){
-        if(currentplayer == player1.name){
-            return player2.name;
-        }
-        else{
-            return player1.name;
-        }
+    int changeCurrentPlayer(int currentplayer){
+        currentPlayerIndex = 1-currentPlayerIndex;
+        return currentPlayerIndex;
     }
 
-    void performAction(){
-        if(currentplayer == player1.name){
-            player1.placeMoveOnBoard(position, player1.symbol,board.gameBoard);
-            board.printBoard();
-            board.checkisWinner(player1.name, player1.playerMoves);
-        }
-        else{
-            player2.placeMoveOnBoard(position, player2.symbol,board.gameBoard); 
-            board.printBoard();
-            board.checkisWinner(player2.name, player2.playerMoves);  
-        }
+    void performAction(Player player){
+        player.placeMoveOnBoard(position, player.symbol,board.gameBoard);
+        board.printBoard();
+        board.checkisWinner(player.name, player.playerMoves);  
+    }
+
+    void checkPlayer(){
+        performAction(players[currentPlayerIndex]);
     }
 
     void checkPositionEmpty(){
-        if(board.isPositionEmpty(position)){
-            performAction();
-            currentplayer = changePlayerturn(currentplayer); 
+        if(board.isPositionEmpty(position)) {
+            checkPlayer();
+            changeCurrentPlayer(currentPlayerIndex); 
         }
-        else{
+        else {
             System.out.println("Position filled,give another position");
         }
     }
@@ -42,7 +36,7 @@ class GameController {
     void startGame(){
         while(!board.isGameOver){
             if(!board.isBoardfilled()){
-                System.out.println("Player "+currentplayer+", give position to be placed");
+                System.out.println("Player "+players[currentPlayerIndex].name+", give position to be placed");
                 position = input.nextInt();
                 checkPositionEmpty();   
             } 
